@@ -6,6 +6,14 @@ import matplotlib.pyplot as plt
 
 LOG_FILE = os.path.join(os.path.dirname(__file__), "data", "activity_log.json")
 
+def load_activity_data(filepath='activity_log.don'):
+    with open(filepath, 'r') as f:
+        content = f.read().strip()
+        if not content:
+            print("File log nya masih kosongg")
+            return []
+        return json.load(content)
+
 def plot_daily_activity():
     if not os.path.exists(LOG_FILE):
         print("Log file belum ada.")
