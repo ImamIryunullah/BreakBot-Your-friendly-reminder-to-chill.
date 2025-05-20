@@ -1,8 +1,11 @@
 from plyer import notification
+from playsound import playsound
+import threading
 
-def notify_break():
+def notify_user(title="Istirahat Dulu Gak Sih Ngabsss!!!", message="Sudah lama kamu aktif, waktunya istirahat doeloe sihhhh !"):
     notification.notify(
-        title="Waktunya Istirahat Ngabsss, Istirahatttttt!",
-        message="Kamu sudah aktif 45 menit nihhhh. Ayoo, istirahat 5 menit aja dulu dengan nyetel DJ atau musik kamu aja ngabss",
+        title=title,
+        message=message,
         timeout=10
     )
+    threading.Thread(target=playsound, args=("alert.mp3",), daemon=True).start()

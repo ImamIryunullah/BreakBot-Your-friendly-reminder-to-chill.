@@ -1,13 +1,9 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 from activity_monitor.monitor import ActivityMonitor
-from activity_monitor.config import MAX_ACTIVE_TIME
+from activity_monitor.gui import get_user_setting
 
 def main():
-    monitor = ActivityMonitor(max_active_time=MAX_ACTIVE_TIME)
+    user_seconds = get_user_setting()
+    monitor = ActivityMonitor(max_active_time=user_seconds)
     monitor.run()
 
 if __name__ == "__main__":
